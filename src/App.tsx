@@ -1,9 +1,8 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
@@ -60,38 +59,36 @@ const LearnerRoute = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <BrowserRouter>
-        <LanguageProvider>
-          <AuthProvider>
-            <Toaster />
-            <Sonner />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/auth" element={<Auth />} />
-              
-              <Route element={<ProtectedRoute />}>
-                <Route path="/profile" element={<Profile />} />
-              </Route>
-              
-              <Route element={<MentorRoute />}>
-                <Route path="/mentoring" element={<Courses />} />
-                <Route path="/mentor-resources" element={<Courses />} />
-                <Route path="/workshops" element={<Courses />} />
-              </Route>
-              
-              <Route element={<LearnerRoute />}>
-                <Route path="/learning-path" element={<Courses />} />
-                <Route path="/courses" element={<Courses />} />
-                <Route path="/my-mentors" element={<MyMentors />} />
-                <Route path="/internships" element={<Courses />} />
-                <Route path="/job-opportunities" element={<Courses />} />
-              </Route>
-              
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </AuthProvider>
-        </LanguageProvider>
-      </BrowserRouter>
+      <LanguageProvider>
+        <AuthProvider>
+          <Toaster />
+          <Sonner />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/auth" element={<Auth />} />
+            
+            <Route element={<ProtectedRoute />}>
+              <Route path="/profile" element={<Profile />} />
+            </Route>
+            
+            <Route element={<MentorRoute />}>
+              <Route path="/mentoring" element={<Courses />} />
+              <Route path="/mentor-resources" element={<Courses />} />
+              <Route path="/workshops" element={<Courses />} />
+            </Route>
+            
+            <Route element={<LearnerRoute />}>
+              <Route path="/learning-path" element={<Courses />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/my-mentors" element={<MyMentors />} />
+              <Route path="/internships" element={<Courses />} />
+              <Route path="/job-opportunities" element={<Courses />} />
+            </Route>
+            
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AuthProvider>
+      </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
