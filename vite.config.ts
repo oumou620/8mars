@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: '/8mars/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -16,6 +16,11 @@ export default defineConfig({
     sourcemap: false,
     minify: true,
     cssMinify: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
   },
   assetsInclude: ['**/*.jpg', '**/*.png', '**/*.svg']
 });
