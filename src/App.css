@@ -1,0 +1,31 @@
+
+/* Nous supprimons la plupart de ces styles par défaut pour permettre une meilleure transparence et lisibilité */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Support du mode sombre */
+:root {
+  color-scheme: light dark;
+}
+
+.dark body {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
